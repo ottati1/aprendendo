@@ -1,10 +1,11 @@
-ano = str(input('qual ano deseja descobrir :'))
-n = 0
-n_ano = []
-while n <= len(ano) - 1 :
-    if n >= 2:
-        n_ano.append(ano[n])
-    n += 1
-a = int(n_ano[0] + n_ano[1])
-v = (a / 4)
-print (type(v))
+ano = int(input('qual ano deseja descobrir :'))
+b = ano % 4
+a = ano % 400
+if b == 0:
+    print('é um ano bixesto')
+elif a == 0:
+    print('é um ano bixesto')
+
+
+else:
+    print('não é um ano bixesto')

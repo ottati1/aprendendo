@@ -1,0 +1,7 @@
+{
+    "terminal.integrated.suggest.suggestOnTriggerCharacters": false,
+    "editor.suggest.selectionMode": "always",
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.formatOnPaste": false,
+    "editor.aiStats.enabled": false
+}
