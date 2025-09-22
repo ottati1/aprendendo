@@ -19,12 +19,20 @@ def conversão(a):
             print('converção para hexadecimal :')
             per = str(input('sim / não' )).lower()
             if per in ['sim', 's']:
-                print('deu certo 3')
                 n = 2
                 return 'h'  
         n += 1              
             
 resultado = conversão(numero)
 if resultado == 'b':
+    binario = bin(numero)[2:]
     print('Você escolheu binario')
-    print('o número {} convertido é {}'.format(numero, bin(numero)))
+    print('o número {} convertido é {}'.format(numero, binario))
+if resultado == 'o':
+    octal = oct(numero)[2:]
+    print('Você escolheu octal:')
+    print('o número {} convertido para octal é {}'.format(numero, octal ))
+if resultado == 'h':
+    hexadecimal = hex(numero)[2:]
+    print('Você escolheu hexadecimal')
+    print('O número {} convertido para hexadecimal é {}'.format(numero, hexadecimal))
