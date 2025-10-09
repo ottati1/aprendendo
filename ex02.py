@@ -1,8 +1,6 @@
 import tkinter as tk
 from random import randint
-lista = []
-
-
+ 
 janela = tk.Tk()
 janela.title('Exercício 02')
 janela.state('zoomed')
@@ -16,10 +14,22 @@ def movi():
 movi() 
 
 # fazer os botoes para salvar 
-for c in range(0, 2):
-    list = ['dia', 'mês', 'ano']
+c = 0
+if c < 3:
+    list = ['dia', 'mês',  'ano']
+    if c= 0:
     pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
     pergunta.place(x=800, y=150)
+    entrada = tk.Entry(janela)
+    entrada.place(x=800, y=180)
+    botão = tk.Button(janela, text='Salvar', font=('Arial',12))
+    if c == 2:
+        pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
+    if c == 3:
+        pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
+
+    print(list[c])
+
 janela.mainloop()
 
 # Exercício 02 - Crie um script Python que leia o dia, o mês e o
