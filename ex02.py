@@ -17,12 +17,17 @@ movi()
 c = 0
 if c < 3:
     list = ['dia', 'mês',  'ano']
-    if c= 0:
-    pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
-    pergunta.place(x=800, y=150)
+    if c == 0:
+        pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
+        pergunta.place(x=800, y=150)
     entrada = tk.Entry(janela)
     entrada.place(x=800, y=180)
+
+    
     botão = tk.Button(janela, text='Salvar', font=('Arial',12))
+    botão.place(x=800, y=210)
+
+
     if c == 2:
         pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format(list[c]), font=('Arial',12))
     if c == 3:
@@ -31,7 +36,7 @@ if c < 3:
     print(list[c])
 
 janela.mainloop()
-
+#### FALTA FAZER O BOTÃO SALVAR O RESULKTADO E ADCIONAR UM VALOR A MAIS EM C
 # Exercício 02 - Crie um script Python que leia o dia, o mês e o
 #fazer interface
 #vincular com o botão
