@@ -30,21 +30,25 @@ def salvar():
         if c == 0:
             pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('dia'), font=('Arial', 12))
             pergunta.place(x=750, y=150)
-            c += 1
+            print(len(lista_respostas))
+            if len(lista_respostas) == 2:
+                c += 1
+                pergunta.destroy()
 
         elif c == 1:
             pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('mês'), font=('Arial', 12))
             pergunta.place(x=800, y=150)
-            c += 1
+            if len(lista_respostas)== 3:
+                c += 1
+                pergunta.destroy()
 
         elif c == 2:
             pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('ano'), font=('Arial', 12))
             pergunta.place(x=800, y=150)
-            
-            c += 1
-            
-            
-        else:
+            if len(lista_respostas) == 4:
+                c += 1
+                pergunta.destroy()
+        elif c == 3:
             botão.destroy()
             entrada.destroy()
             pergunta = tk.Label(janela, text='   Você nasceu {}/{}/{}  correto?    '.format(lista_respostas[1], lista_respostas[2], lista_respostas[3]), font=('Arial', 12))
@@ -52,7 +56,6 @@ def salvar():
             
             
             
-
 
 
 salvar()
