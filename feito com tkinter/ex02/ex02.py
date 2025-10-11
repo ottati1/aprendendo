@@ -19,40 +19,38 @@ movi()
 entrada = tk.Entry(janela)
 entrada.place(x=800, y=180)
 lista_respostas = []
+pergunta = tk.Label(janela, text=' ')
+pergunta.place(x=750, y=150)
 c=  0
 def salvar():
     global c  
     valoe = entrada.get()
     lista_respostas.append(valoe)
     print(lista_respostas)
-
+           
     if c <= 3:
-        if c == 0:
-            pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('dia'), font=('Arial', 12))
-            pergunta.place(x=750, y=150)
-            print(len(lista_respostas))
-            if len(lista_respostas) == 2:
-                c += 1
-                pergunta.destroy()
+        pergunta.config(text='Qual o {} do seu nascimento?'.format('dia'), font=('Arial', 12))
+        if len(lista_respostas) == 2:
+            c += 1
+       
 
-        elif c == 1:
-            pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('mês'), font=('Arial', 12))
-            pergunta.place(x=800, y=150)
-            if len(lista_respostas)== 3:
+        if c == 1:
+            pergunta.config(text='Qual o {} do seu nascimento?'.format('mes'), font=('Arial', 12))
+            if len(lista_respostas) <= 3:
                 c += 1
-                pergunta.destroy()
-
+                
         elif c == 2:
-            pergunta = tk.Label(janela, text='Qual o {} do seu nascimento?'.format('ano'), font=('Arial', 12))
-            pergunta.place(x=800, y=150)
-            if len(lista_respostas) == 4:
+            pergunta.config(text='Qual o {} do seu nascimento?'.format('ano'), font=('Arial', 12))
+            if len(lista_respostas) <= 3:
                 c += 1
-                pergunta.destroy()
+                
+                
         elif c == 3:
             botão.destroy()
             entrada.destroy()
-            pergunta = tk.Label(janela, text='   Você nasceu {}/{}/{}  correto?    '.format(lista_respostas[1], lista_respostas[2], lista_respostas[3]), font=('Arial', 12))
-            pergunta.place(x=800, y=150)
+            pergunta.destroy()
+            resposta = tk.Label(janela, text='   Você nasceu {}/{}/{}  correto?    '.format(lista_respostas[1], lista_respostas[2], lista_respostas[3]), font=('Arial', 12))
+            resposta.place(x=750, y=150)
             
             
             
