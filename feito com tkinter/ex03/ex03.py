@@ -3,7 +3,7 @@
 #print('a soma entre {} e {} e {}'.format(n1, n2, n1+n2)) esse é o exercicio 
 import tkinter as tk 
 import random as rd
-
+lista_calculo = []
 janela = tk.Tk()
 janela.title('Exercício 03')
 janela.geometry('400x500')
@@ -21,7 +21,16 @@ def movi():
 movi()
 janela_resposta = tk.Entry(janela)
 janela_resposta.place(x= 135, y=90)
+#botão salvar com as funçoes 
+def salvar():
+    valor = janela_resposta.get()
+    lista_calculo.append(valor)
+    print(lista_calculo)
 
+
+
+botao = tk.Button(janela, text='salvar', font=('ArialBlack', 12), bg="#FFFFFF", command=salvar)
+botao.place(x=170 , y=120)
 
 
 janela_resposta.focus()
