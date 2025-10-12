@@ -9,8 +9,8 @@ janela.title('Exercício 03')
 janela.geometry('400x500')
 janela.resizable(False, False)
 janela.configure(bg='#FF7F7F')
-#icone da janela 
-janela.iconbitmap('icone.ico')
+
+
 texto_ex = tk.Label(janela, text='Exercício 03 ', font=('ArialBlack', 12), bg='#FF7F7F')
 texto_ex.place(x=150, y=30)
 def movi():
@@ -30,8 +30,7 @@ pergunta_txt.place(x=119 , y=70)
 
 def salvar():
     valor = janela_resposta.get()
-    lista_calculo.append(valor)
-    print(lista_calculo, len(lista_calculo))
+    lista_calculo.append(int(valor))
     c = 0
     if len(lista_calculo) >= 1:
         if len(lista_calculo) <= 1:
@@ -40,11 +39,17 @@ def salvar():
             pergunta_txt.destroy()
             botao.destroy()
             janela_resposta.destroy()
+            a = tk.Label(janela, text='__________', font=('arial',20), bg='#ff7f7f')
+            a.place(x=120, y=95)
             valor = tk.Label(janela, text=lista_calculo[0], font=('arial', 12), bg='#ff7f7f')
             valor.place(x=180, y=70)
             valor1 = tk.Label(janela, text=lista_calculo[1], font=('arial', 12), bg='#ff7f7f')
             valor1.place(x=180, y=100)
             mais =  tk.Label(janela, text='+', font=('arial', 12), bg='#ff7f7f')
+            mais.place(x=200, y=100)
+            soma = (lista_calculo[0] + lista_calculo[1])
+            resposta = tk.Label(janela, text=soma, font=('arial', 12), bg='#ff7f7f')
+            resposta.place(x=180, y= 135)        
 botao = tk.Button(janela, text='salvar', font=('ArialBlack', 12), bg="#FFFFFF", command=salvar)
 botao.place(x=170 , y=120)
 
