@@ -4,8 +4,15 @@ import winsound as som
 #cor da janela padrão
 cor_janela = '#727070'
 fonte_padrão = 'arial', 12, 'bold'
-def teste():
-    print('deu certo')
+#faz funcionar o enter
+def funcao1(a):
+    funcao()
+#funcao principal
+lista = []
+def funcao():
+    lista = enviar.get()
+    print(lista)
+    enviar.delete(0, tk.END)
 def escrita():
     texto = 'Exercício 04'
     lista = list(texto)
@@ -53,7 +60,7 @@ botao = tk.Button(
     cursor='hand2',
     width=7,
     height=0,
-    command=teste
+    command=funcao
 )
 botao.place(x=450 , y=85)
 enviar = tk.Entry(
@@ -66,8 +73,10 @@ enviar.place(x=250, y=90)
 #comeca já podendo digitar
 enviar.focus()
 #vincula o botão enter com o botao enviar
-janela.bind('<Return>', teste)
+janela.bind('<Return>', funcao1)
 janela.mainloop()
+
+
 # o programa tem que me dizer se oque foi digitado é 
 #variavel e qual variavel 
 #se só tem espaço
