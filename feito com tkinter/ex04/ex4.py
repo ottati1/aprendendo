@@ -1,18 +1,51 @@
 import tkinter as tk 
 import time as tempo
+
 import winsound as som
 #cor da janela padrão
 cor_janela = '#727070'
 fonte_padrão = 'arial', 12, 'bold'
+#janela 
+janela = tk.Tk()
+janela.title('Exercício 04')
+janela.geometry('700x800')
+
+janela.resizable(False, False)
+janela.iconbitmap('icones/icone.ico')
+janela.config(background=cor_janela)
 #faz funcionar o enter
 def funcao1(a):
     funcao()
 #funcao principal
-lista = []
+tela = tk.Label(
+    janela,
+    text='',
+    font=('arial', 12, 'bold'),
+    width=40,
+    height=20,
+    relief='ridge'
+)
+tela.place(x=160, y=140)
+listag = []
 def funcao():
     lista = enviar.get()
-    print(lista)
+    listag.append(lista)
+    #qual variavel
+    if lista.isdigit():
+        lista= int(lista)
+    else:
+        lista = str(lista)
+    a1 = list(str(type(lista))) 
+    #espaço
+    a2 = str(lista) 
+    if a2 == '' or a2.isspace == True:
+        a2 = 'sim'
+    else:
+        a2 = 'não' 
+    tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}'.format(a1[8], a1[9], a1[10], a2))
     enviar.delete(0, tk.END)
+    janela.after()
+
 def escrita():
     texto = 'Exercício 04'
     lista = list(texto)
@@ -22,17 +55,10 @@ def escrita():
         texto_final += lista[c]
         texto_entrada.config(text=texto_final)
         janela.update()
-        #som.Beep(100, 10)
+        som.Beep(100, 10)
         tempo.sleep(0.1)
         
-#janela 
-janela = tk.Tk()
-janela.title('Exercício 04')
-janela.geometry('700x800')
 
-janela.resizable(False, False)
-janela.iconbitmap('icones/icone.ico')
-janela.config(background=cor_janela)
 
 #texto de explicação de exercicio (quero que ele entre digitando com som de teclado)
 texto_entrada = tk.Label(
@@ -48,7 +74,8 @@ texto_funcao = tk.Label(
     janela,  
     text='Escreva algo', 
     font=(fonte_padrão), 
-    bg=cor_janela)
+    bg=cor_janela
+)
 
 texto_funcao.place(x=300, y=60)
 #onde vou digitar
@@ -78,8 +105,8 @@ janela.mainloop()
 
 
 # o programa tem que me dizer se oque foi digitado é 
-#variavel e qual variavel 
-#se só tem espaço
+#variavel e qual variavel  FEITO
+#se só tem espaço 
 #é um número
 #é uma letra 
 # e maiuscula ou minuscula 
