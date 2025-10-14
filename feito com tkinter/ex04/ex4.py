@@ -33,19 +33,32 @@ def funcao():
     #qual variavel
     if lista.isdigit():
         lista= int(lista)
+        a3 = 'Sim'
+        a4 = 'Não'
     else:
         lista = str(lista)
+        a3 = 'Não'
+        a4 = 'Sim'
     a1 = list(str(type(lista))) 
     #espaço
     a2 = str(lista) 
-    if a2 == '' or a2.isspace == True:
-        a2 = 'sim'
+    if a2 == ' ' or a2.isspace == True:
+        a2 = 'Sim'
     else:
-        a2 = 'não' 
-    tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}'.format(a1[8], a1[9], a1[10], a2))
+        a2 = 'Não' 
+    if a3 =='Sim':
+        a5 = 'Não é uma letra'
+    else:
+        a5 = lista.islower()
+        if a5 == True:
+            a5 = 'É minusculo'
+        else:
+            a5 = 'É maiusculo'
+            
+    tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}\n *É um número? {}\n *É uma letra? {}\n *{}'
+                .format(a1[8], a1[9], a1[10], a2, a3, a4, a5))
     enviar.delete(0, tk.END)
-    janela.after()
-
+    janela.after(100000, funcao)
 def escrita():
     texto = 'Exercício 04'
     lista = list(texto)
@@ -55,7 +68,7 @@ def escrita():
         texto_final += lista[c]
         texto_entrada.config(text=texto_final)
         janela.update()
-        som.Beep(100, 10)
+        #som.Beep(100, 10)
         tempo.sleep(0.1)
         
 
@@ -106,10 +119,10 @@ janela.mainloop()
 
 # o programa tem que me dizer se oque foi digitado é 
 #variavel e qual variavel  FEITO
-#se só tem espaço 
-#é um número
-#é uma letra 
-# e maiuscula ou minuscula 
+#se só tem espaço  #feito 
+#é um número # feito
+#é uma letra # feito
+# e maiuscula ou minuscula #feito
 # a primeira letra e maiuscula ? 
 # faazer isso em loop e que cada vez que eu faça um novo atualize
 # se possivel criar um historico doque já foi pesquisado com uma haba onde eu possa acessar import tkinter as tk 
