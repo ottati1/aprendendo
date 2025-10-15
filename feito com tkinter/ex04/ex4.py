@@ -54,9 +54,16 @@ def funcao():
             a5 = 'É minusculo'
         else:
             a5 = 'É maiusculo'
-            
-    tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}\n *É um número? {}\n *É uma letra? {}\n *{}'
-                .format(a1[8], a1[9], a1[10], a2, a3, a4, a5))
+    if a4 == 'Sim':
+        a6 = str(lista)
+        a6 = lista.isupper()
+        if a6 == True:
+            a6 = 'Sim'
+        else:
+            a6 ='Não'
+                   
+    tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}\n *É um número? {}\n *É uma letra? {}\n *{}\n *A primeira letra é maiuscula? {}'
+                .format(a1[8], a1[9], a1[10], a2, a3, a4, a5, a6))
     enviar.delete(0, tk.END)
     janela.after(100000, funcao)
 def escrita():
@@ -115,14 +122,13 @@ enviar.focus()
 #vincula o botão enter com o botao enviar
 janela.bind('<Return>', funcao1)
 janela.mainloop()
-
-
+print(listag)
 # o programa tem que me dizer se oque foi digitado é 
 #variavel e qual variavel  FEITO
 #se só tem espaço  #feito 
 #é um número # feito
 #é uma letra # feito
 # e maiuscula ou minuscula #feito
-# a primeira letra e maiuscula ? 
-# faazer isso em loop e que cada vez que eu faça um novo atualize
+# a primeira letra e maiuscula ?  # feito
+# faazer isso em loop e que cada vez que eu faça um novo atualize # feito
 # se possivel criar um historico doque já foi pesquisado com uma haba onde eu possa acessar import tkinter as tk 
