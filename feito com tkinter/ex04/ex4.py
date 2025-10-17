@@ -1,6 +1,5 @@
 import tkinter as tk 
 import time as tempo
-from historico_dados import histo
 import winsound as som
 def exemplo04():
     
@@ -122,22 +121,10 @@ def exemplo04():
     #comeca já podendo digitar
     enviar.focus()
     #botao historico9
-    def abrir():
-        janela.destroy
-        historico1()
-        
-    botao_historico = tk.Button(
-        janela,
-        text='Histórico',
-        font=('arial', 12, 'bold'),
-        cursor='hand2',
-        command=abrir
-    )
-    botao_historico.place(x=10, y=10)
+    
     #vincula o botão enter com o botao enviar
     janela.bind('<Return>', funcao1)
     janela.mainloop()
-    print(listag)
 # o programa tem que me dizer se oque foi digitado é 
 #variavel e qual variavel  FEITO
 #se só tem espaço  #feito 
