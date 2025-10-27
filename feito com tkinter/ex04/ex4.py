@@ -76,7 +76,22 @@ def escrita():
             #som.Beep(100, 10)
             tempo.sleep(0.1)
             
+def historico():
+      janela.destroy()
+      janela_historico = tk.Tk()
+      janela_historico.geometry('700x800')
+      janela_historico.resizable(False, False)
+      janela_historico.title('Histórico')
+      janela_historico.iconbitmap('icones/icone.ico')
+      janela_historico.config(background=cor_janela)
+      xx = 10
+      yy = 10
+      for c in range(len(listag)):
+        histo = tk.Label(text=listag, font=('aria', 10, 'bold'))
+        histo.place(x=xx , y= yy)
+        yy += 20
 
+      janela_historico.mainloop
 
 #texto de explicação de exercicio (quero que ele entre digitando com som de teclado)
 texto_entrada = tk.Label(
@@ -118,7 +133,15 @@ enviar.place(x=250, y=90)
 #comeca já podendo digitar
 enviar.focus()
 #botao historico9
-    
+botao_historico = tk.Button(
+      janela,
+      text='Histórico',
+      font=('arial', 10, 'bold'),
+      cursor='hand2',
+      command=historico
+
+)
+botao_historico.place(x=620, y=10)
 #vincula o botão enter com o botao enviar
 janela.bind('<Return>', funcao1)
 janela.mainloop()
