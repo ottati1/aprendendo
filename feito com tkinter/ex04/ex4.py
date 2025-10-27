@@ -1,6 +1,6 @@
 import tkinter as tk 
 import time as tempo
-import winsound as som
+
 #cor da janela padrão
 cor_janela = '#727070'
 fonte_padrão = 'arial', 12, 'bold'
@@ -53,13 +53,14 @@ def funcao():
             else:
                 a5 = 'É maiusculo'
     if a4 == 'Sim':
-            a6 = str(lista)
-            a6 = lista.isupper()
-            if a6 == True:
-                a6 = 'Sim'
-    else:
+        a6 = str(lista)
+        a6 = lista.isupper()
+        if a6 == True:
+            a6 = 'Sim'
+        else:
             a6 ='Não'
-                    
+    else:
+        a6 = 'Não'                
     tela.config(text='*Qual variavel é {}{}{}\n *Esta vaziu?  {}\n *É um número? {}\n *É uma letra? {}\n *{}\n *A primeira letra é maiuscula? {}'
                     .format(a1[8], a1[9], a1[10], a2, a3, a4, a5, a6))
     enviar.delete(0, tk.END)
@@ -77,6 +78,8 @@ def escrita():
             tempo.sleep(0.1)
             
 def historico():
+     
+            
       janela.destroy()
       janela_historico = tk.Tk()
       janela_historico.geometry('700x800')
@@ -86,10 +89,69 @@ def historico():
       janela_historico.config(background=cor_janela)
       xx = 10
       yy = 10
+      cont = 0
+      def mostrar_historico(c):
+            lista = listag[c]
+            if lista.isdigit():
+                lista= int(lista)
+                a3 = 'Sim'
+                a4 = 'Não'
+            else:
+                lista = str(lista)
+                a3 = 'Não'
+                a4 = 'Sim'
+            a1 = list(str(type(lista))) 
+            #espaço
+            a2 = str(lista) 
+            if a2 == ' ' or a2.isspace == True:
+                a2 = 'Sim'
+            else:
+                a2 = 'Não' 
+            if a3 =='Sim':
+                a5 = 'Não é uma letra'
+            else:
+                a5 = lista.islower()
+                if a5 == True:
+                    a5 = 'É minusculo'
+                else:
+                    a5 = 'É maiusculo'
+            if a4 == 'Sim':
+                a6 = str(lista)
+                a6 = lista.isupper()
+                if a6 == True:
+                    a6 = 'Sim'
+                else:
+                    a6 ='Não'
+            else:
+                a6 = 'Não'
+            tela = tk.Label(
+            janela_historico,
+            text='',
+            font=('arial', 12, 'bold'),
+            width=40,
+            height=20,
+            relief='ridge'
+            )
+            tela.place(x=160, y=250)
+            tela.config(text='foi digitado === {} ===\n \n *Qual variavel é {}{}{}\n *Esta vaziu?  {}\n *É um número? {}\n *É uma letra? {}\n *{}\n *A primeira letra é maiuscula? {}'
+                        .format(lista, a1[8], a1[9], a1[10], a2, a3, a4, a5, a6))
+            janela_historico.after(100000, historico)
       for c in range(len(listag)):
-        histo = tk.Label(text=listag, font=('aria', 10, 'bold'))
+        
+        histo = tk.Button(
+              text=listag[c], 
+              font=('aria', 10, 'bold'),
+              cursor='hand2',
+              command=lambda c=c: mostrar_historico(c) 
+            )
         histo.place(x=xx , y= yy)
-        yy += 20
+        cont += 1
+        yy += 30
+        if cont == 3:
+            xx += 40
+            yy = 10
+            cont = 0
+       
 
       janela_historico.mainloop
 
