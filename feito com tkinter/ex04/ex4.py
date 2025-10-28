@@ -1,6 +1,18 @@
 import tkinter as tk 
 import time as tempo
+import os
+import sys
 
+def resource_path(relative_path):
+    try:
+        
+        base_path = sys._MEIPASS
+    except Exception:
+        # Pega o caminho relativo do modo de desenvolvimento (pasta atual)
+        base_path = os.path.abspath(".")
+
+    # Junta o caminho base com o nome do arquivo
+    return os.path.join(base_path, relative_path)
 #cor da janela padrão
 cor_janela = '#727070'
 fonte_padrão = 'arial', 12, 'bold'
@@ -9,7 +21,8 @@ janela = tk.Tk()
 janela.title('Exercício 04')
 janela.geometry('700x800')
 janela.resizable(False, False)
-janela.iconbitmap('icones/icone.ico')
+icon_file_path = resource_path('icone.ico') 
+janela.iconbitmap(icon_file_path)
 janela.config(background=cor_janela)
 #faz funcionar o enter
 def funcao1(a):
@@ -85,7 +98,8 @@ def historico():
       janela_historico.geometry('700x800')
       janela_historico.resizable(False, False)
       janela_historico.title('Histórico')
-      janela_historico.iconbitmap('icones/icone.ico')
+      icon_file_path = resource_path('icone.ico') 
+      janela_historico.iconbitmap(icon_file_path)
       janela_historico.config(background=cor_janela)
       xx = 10
       yy = 10
